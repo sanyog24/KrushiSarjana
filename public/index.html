@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/images/krushilogo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <title>Krushi Sarjana</title>
+
+    <style>
+      /* Position Google Translate next to the login button */
+      #google_translate_element {
+    position: absolute;
+    top: 10px;
+    right: 120px; /* Adjust based on your layout */
+    z-index: 1000;
+  }
+
+  /* Hide Google branding, 'Powered by Google' text, and logo */
+  .goog-logo-link, 
+  .goog-te-gadget span, 
+  .goog-te-banner-frame, 
+  #goog-gt-tt, 
+  .goog-te-balloon-frame, 
+  .goog-text-highlight {
+    display: none !important;
+  }
+  .goog-te-gadget{
+    font-size: 0px;
+  }
+  .goog-te-combo {
+  background-color: white; /* White background */
+  color: #014c16; /* Dark green text */
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 12px;
+  border: 2px solid #014c16; /* Dark green border */
+  border-radius: 5px; /* Slightly rounded corners */
+  cursor: pointer;
+  outline: none;
+  position: absolute;
+  right: 20vw;
+  top: 1vh;
+}
+/* Style for the dropdown list */
+.goog-te-combo option {
+  background-color: white; /* White background */
+  color: #014c16; /* Dark green text */
+  border: 2px solid #014c16; /* Dark green border */
+  border-radius: 0; /* No rounded corners */
+}
+  /* Prevent white flash effect on translation */
+  body {
+    top: 0px !important;
+  }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <!-- Google Translate Dropdown -->
+    <div id="google_translate_element"></div>
+    
+    <div id="root"></div>
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          { pageLanguage: 'en', includedLanguages: 'en,hi,mr', layout: google.translate.TranslateElement.FloatPosition.BOTTOM_LEFT },
+          'google_translate_element'
+        );
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </body>
+</html>

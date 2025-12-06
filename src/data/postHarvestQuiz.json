@@ -1,0 +1,122 @@
+{
+    "onion": [
+      {
+        "question": "What is the ideal temperature for storing onions?",
+        "options": ["0-5°C", "10-15°C", "20-25°C", "30-35°C"],
+        "correctAnswer": "10-15°C"
+      },
+      {
+        "question": "How should onions be stored to prevent sprouting?",
+        "options": ["In a humid environment", "In a dry and cool place", "In direct sunlight", "In airtight containers"],
+        "correctAnswer": "In a dry and cool place"
+      }
+    ],
+    "tomato": [
+      {
+        "question": "What is the best way to store ripe tomatoes?",
+        "options": ["In the refrigerator", "At room temperature", "In a plastic bag", "In direct sunlight"],
+        "correctAnswer": "At room temperature"
+      },
+      {
+        "question": "How can you slow down the ripening of tomatoes?",
+        "options": ["Store them in a warm place", "Store them in a cool, dark place", "Expose them to sunlight", "Wrap them in newspaper"],
+        "correctAnswer": "Store them in a cool, dark place"
+      }
+    ],
+    "potato": [
+      {
+        "question": "What is the ideal storage condition for potatoes?",
+        "options": ["In a warm and humid place", "In a cool and dark place", "In direct sunlight", "In airtight containers"],
+        "correctAnswer": "In a cool and dark place"
+      },
+      {
+        "question": "Why should potatoes not be stored in the refrigerator?",
+        "options": ["They lose their flavor", "They turn green and produce toxins", "They become too soft", "They absorb odors"],
+        "correctAnswer": "They turn green and produce toxins"
+      }
+    ],
+    "carrot": [
+      {
+        "question": "What is the best way to store carrots?",
+        "options": ["In a humid environment", "In a dry and cool place", "In direct sunlight", "In airtight containers"],
+        "correctAnswer": "In a dry and cool place"
+      },
+      {
+        "question": "How can you prevent carrots from becoming soft?",
+        "options": ["Store them in water", "Wrap them in plastic", "Keep them in a cool, dark place", "Expose them to sunlight"],
+        "correctAnswer": "Keep them in a cool, dark place"
+      }
+    ],
+    "apple": [
+      {
+        "question": "What is the ideal temperature for storing apples?",
+        "options": ["0-5°C", "10-15°C", "20-25°C", "30-35°C"],
+        "correctAnswer": "0-5°C"
+      },
+      {
+        "question": "How can you prevent apples from over-ripening?",
+        "options": ["Store them with bananas", "Store them in a cool, dark place", "Expose them to sunlight", "Wrap them in newspaper"],
+        "correctAnswer": "Store them in a cool, dark place"
+      }
+    ],
+    "banana": [
+      {
+        "question": "What is the best way to store bananas?",
+        "options": ["In the refrigerator", "At room temperature", "In a plastic bag", "In direct sunlight"],
+        "correctAnswer": "At room temperature"
+      },
+      {
+        "question": "How can you slow down the ripening of bananas?",
+        "options": ["Store them in a warm place", "Store them in a cool, dark place", "Wrap the stems in plastic wrap", "Expose them to sunlight"],
+        "correctAnswer": "Wrap the stems in plastic wrap"
+      }
+    ],
+    "cabbage": [
+      {
+        "question": "What is the ideal storage condition for cabbage?",
+        "options": ["In a warm and humid place", "In a cool and dark place", "In direct sunlight", "In airtight containers"],
+        "correctAnswer": "In a cool and dark place"
+      },
+      {
+        "question": "How can you prevent cabbage from wilting?",
+        "options": ["Store it in water", "Wrap it in plastic", "Keep it in a cool, dark place", "Expose it to sunlight"],
+        "correctAnswer": "Keep it in a cool, dark place"
+      }
+    ],
+    "garlic": [
+      {
+        "question": "What is the best way to store garlic?",
+        "options": ["In a humid environment", "In a dry and cool place", "In direct sunlight", "In airtight containers"],
+        "correctAnswer": "In a dry and cool place"
+      },
+      {
+        "question": "How can you prevent garlic from sprouting?",
+        "options": ["Store it in water", "Wrap it in plastic", "Keep it in a cool, dark place", "Expose it to sunlight"],
+        "correctAnswer": "Keep it in a cool, dark place"
+      }
+    ],
+    "lettuce": [
+      {
+        "question": "What is the ideal temperature for storing lettuce?",
+        "options": ["0-5°C", "10-15°C", "20-25°C", "30-35°C"],
+        "correctAnswer": "0-5°C"
+      },
+      {
+        "question": "How can you prevent lettuce from wilting?",
+        "options": ["Store it in water", "Wrap it in a damp cloth", "Keep it in a cool, dark place", "Expose it to sunlight"],
+        "correctAnswer": "Wrap it in a damp cloth"
+      }
+    ],
+    "mango": [
+      {
+        "question": "What is the best way to store ripe mangoes?",
+        "options": ["In the refrigerator", "At room temperature", "In a plastic bag", "In direct sunlight"],
+        "correctAnswer": "In the refrigerator"
+      },
+      {
+        "question": "How can you slow down the ripening of mangoes?",
+        "options": ["Store them in a warm place", "Store them in a cool, dark place", "Wrap them in newspaper", "Expose them to sunlight"],
+        "correctAnswer": "Store them in a cool, dark place"
+      }
+    ]
+  }

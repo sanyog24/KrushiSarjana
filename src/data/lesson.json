@@ -1,0 +1,92 @@
+{
+    "onion": {
+      "title": "Onion Storage Techniques",
+      "content": [
+        "Store onions in a cool, dry, and well-ventilated place.",
+        "Avoid storing onions in plastic bags as they need airflow to prevent spoilage.",
+        "Ideal storage temperature is between 10-15°C.",
+        "Keep onions away from direct sunlight to prevent sprouting."
+      ]
+    },
+    "tomato": {
+      "title": "Tomato Storage Techniques",
+      "content": [
+        "Store ripe tomatoes at room temperature for best flavor.",
+        "Avoid refrigerating tomatoes as it can affect their texture and taste.",
+        "Keep tomatoes in a single layer to prevent bruising.",
+        "Store unripe tomatoes in a paper bag to speed up ripening."
+      ]
+    },
+    "potato": {
+      "title": "Potato Storage Techniques",
+      "content": [
+        "Store potatoes in a cool, dark, and well-ventilated place.",
+        "Avoid storing potatoes in the refrigerator as it can cause them to turn green and produce toxins.",
+        "Keep potatoes away from onions, as they can cause each other to spoil faster.",
+        "Check potatoes regularly and remove any that are sprouting or rotting."
+      ]
+    },
+    "carrot": {
+      "title": "Carrot Storage Techniques",
+      "content": [
+        "Store carrots in a cool, dark, and humid environment.",
+        "Remove the green tops before storing to prevent moisture loss.",
+        "Store carrots in perforated plastic bags to maintain humidity.",
+        "Avoid storing carrots near ethylene-producing fruits like apples."
+      ]
+    },
+    "apple": {
+      "title": "Apple Storage Techniques",
+      "content": [
+        "Store apples in a cool, dark place with a temperature of 0-5°C.",
+        "Keep apples in perforated plastic bags to maintain humidity.",
+        "Avoid storing apples with vegetables, as they release ethylene gas.",
+        "Check apples regularly and remove any that are bruised or rotting."
+      ]
+    },
+    "banana": {
+      "title": "Banana Storage Techniques",
+      "content": [
+        "Store bananas at room temperature until they ripen.",
+        "Once ripe, store bananas in the refrigerator to slow down further ripening.",
+        "Wrap the stems of bananas in plastic wrap to reduce ethylene gas emission.",
+        "Avoid storing bananas near other fruits, as they can cause them to ripen faster."
+      ]
+    },
+    "cabbage": {
+      "title": "Cabbage Storage Techniques",
+      "content": [
+        "Store cabbage in a cool, dark, and humid environment.",
+        "Keep cabbage in perforated plastic bags to maintain humidity.",
+        "Avoid storing cabbage near ethylene-producing fruits like apples.",
+        "Remove outer leaves if they are damaged before storing."
+      ]
+    },
+    "garlic": {
+      "title": "Garlic Storage Techniques",
+      "content": [
+        "Store garlic in a cool, dark, and dry place.",
+        "Avoid storing garlic in the refrigerator, as it can cause sprouting.",
+        "Keep garlic in a well-ventilated container to prevent mold.",
+        "Do not store garlic in plastic bags, as it needs airflow."
+      ]
+    },
+    "lettuce": {
+      "title": "Lettuce Storage Techniques",
+      "content": [
+        "Store lettuce in the refrigerator at a temperature of 0-5°C.",
+        "Wrap lettuce in a damp cloth or paper towel to maintain moisture.",
+        "Avoid storing lettuce near ethylene-producing fruits like apples.",
+        "Do not store lettuce in airtight containers, as it needs airflow."
+      ]
+    },
+    "mango": {
+      "title": "Mango Storage Techniques",
+      "content": [
+        "Store unripe mangoes at room temperature until they ripen.",
+        "Once ripe, store mangoes in the refrigerator to slow down further ripening.",
+        "Avoid storing mangoes near ethylene-sensitive fruits like bananas.",
+        "Check mangoes regularly and remove any that are overripe or rotting."
+      ]
+    }
+  }

@@ -1,0 +1,34 @@
+{
+  "government_schemes": [
+    {
+      "name": "PM-KUSUM",
+      "description": "Pradhan Mantri Kisan Urja Suraksha evam Utthaan Mahabhiyan (PM-KUSUM) aims to promote solar energy among farmers.",
+      "url": "https://pmkusum.mnre.gov.in/#/landing"
+    },
+    {
+      "name": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+      "description": "A crop insurance scheme providing financial support to farmers in case of crop failure due to natural calamities.",
+      "url": "https://pmfby.gov.in/"
+    },
+    {
+      "name": "PM-Kisan Samman Nidhi",
+      "description": "A direct income support scheme that provides ₹6,000 per year to small and marginal farmers.",
+      "url": "https://pmkisan.gov.in/"
+    },
+    {
+      "name": "Government Schemes Factsheet",
+      "description": "Official factsheet providing details on various agricultural schemes and policies.",
+      "url": "https://pib.gov.in/FactsheetDetails.aspx?Id=148600&reg=3&lang=1"
+    },
+    {
+      "name": "Agri Infrastructure Fund",
+      "description": "A central government initiative providing financial support for developing agricultural infrastructure.",
+      "url": "https://agriinfra.dac.gov.in/Home"
+    },
+    {
+      "name": "Pandit Deendayal Upadhyay Unnat Krishi Shiksha Yojana (PDDUUKSY)",
+      "url": "https://pdduuksy.icar.gov.in/",
+      "description": "An initiative by ICAR to provide agricultural education and skill development for rural youth and farmers."
+    }
+  ]
+}
