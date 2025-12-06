@@ -84,16 +84,6 @@ const productsToDisplay = voiceRecommendedProducts || filteredProducts;    retur
                     <div className="text-3xl text-gray-300">👤</div>
                 </div>
 
-                {/* Voice Assistant Button */}
-                <button
-                    onClick={handleVoiceAssistant}
-                    className="flex items-center gap-3 w-full p-4 bg-[#1b3a28] rounded-lg hover:bg-[#21503a]"
-                    disabled={isVoiceAssistantProcessing} // Disable button while processing
-                >
-                    <FaMicrophone className="text-blue-400 text-2xl" />
-                    <span className="text-sm text-gray-300">{isVoiceAssistantProcessing ? "Processing..." : "Voice Assistant"}</span>
-                </button>
-
                 {/* Categories Section */}
                 <div className="mt-6">
                     <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
@@ -154,7 +144,7 @@ const productsToDisplay = voiceRecommendedProducts || filteredProducts;    retur
             <div className="w-full md:w-3/4 min-h-screen p-6 bg-[#f3f3f3] overflow-y-auto">
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                    {productsToDisplay && productsToDisplay.length > 0 ? ( // Conditionally render product cards if productsToDisplay is not null and not empty
+                    {productsToDisplay && productsToDisplay.length > 0 ? (
                         productsToDisplay.map((product) => (
                             <ProductCard
                                 id={product._id}
@@ -166,19 +156,7 @@ const productsToDisplay = voiceRecommendedProducts || filteredProducts;    retur
                                 onCompare={handleCompare}
                             />
                         ))
-                    ) : productsToDisplay === null && !isVoiceAssistantProcessing ? ( // Display initial products or message when no recommendations and not processing
-                        filteredProducts.map((product) => (
-                            <ProductCard
-                                id={product._id}
-                                name={product.name}
-                                price={product.price}
-                                category={product.category}
-                                description={product.description}
-                                image={product.image}
-                                onCompare={handleCompare}
-                            />
-                        ))
-                    ) : productsToDisplay?.length === 0 && (
+                    ) : (
                         <p>No products found matching your preferences.</p>
                     )}
                 </div>
