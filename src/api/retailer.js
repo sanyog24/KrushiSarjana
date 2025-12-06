@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/retailers"; // Change URL if deployed
+const API_URL = "https://krushisarjana-backend.vercel.app/api/retailers";
 
 // ✅ Get Retailer Profile
 export const getRetailerProfile = async () => {
   try {
-    const response = await fetch("http://localhost:5000/api/retailers/get-profile", {
+    const response = await fetch("https://krushisarjana-backend.vercel.app/api/retailers/get-profile", {
       method: "GET",
       credentials: "include", // ✅ Ensures cookies are sent
       headers: {

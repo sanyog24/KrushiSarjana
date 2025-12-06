@@ -75,7 +75,7 @@ const AddToCart = ({ id, image, name, price, category, description, onClose, sel
       
       const stripe = await stripePromise;
 
-      const { data } = await axios.post("http://localhost:5000/api/orders/checkout", {
+      const { data } = await axios.post("https://krushisarjana-backend.vercel.app/api/orders/checkout", {
         items: [{ name, price, image, quantity }],
         userId: user._id,
       });

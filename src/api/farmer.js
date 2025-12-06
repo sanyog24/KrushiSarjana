@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api/farmers";
+const API_BASE_URL = "https://krushisarjana-backend.vercel.app/api/farmers";
 
 /**
  * @desc Create or Update Farmer Profile

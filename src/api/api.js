@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Base API instance
 const API = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://krushisarjana-backend.vercel.app/api",
   withCredentials: true, // Ensures cookies (tokens) are sent with requests
 });
 
