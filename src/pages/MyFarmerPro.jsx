@@ -103,10 +103,14 @@ const Dashboard = () => {
 
         if (userData.role === "Farmer") {
           const fetchedProducts = await getAllProducts();
-          setProducts(fetchedProducts.filter((product) => product.seller === userData._id));
+          const farmerProducts = Array.isArray(fetchedProducts) 
+            ? fetchedProducts.filter((product) => product.seller === userData._id)
+            : [];
+          setProducts(farmerProducts);
         }
       } catch (error) {
         console.error("❌ Error fetching user or products:", error);
+        setProducts([]); // Set empty array on error
       }
     };
     fetchUserAndProducts();

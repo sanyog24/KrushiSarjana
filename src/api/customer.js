@@ -1,16 +1,14 @@
-import axios from "axios";
+import API from "./api";
 
-const API_BASE_URL = "https://krushisarjana-backend.vercel.app/api/customers";
+const API_BASE_URL = "/customers";
 
 // ✅ Upsert (Create or Update) Customer with Profile Image Upload
 export const upsertCustomer = async (token, formData) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/upsert`, formData, {
+    const response = await API.post(`${API_BASE_URL}/upsert`, formData, {
       headers: {
-        Authorization: `Bearer ${token}`,
         "Content-Type": "multipart/form-data",
       },
-      withCredentials: true, // ✅ Ensures cookies are sent if needed
     });
     return response.data;
   } catch (error) {
@@ -22,25 +20,21 @@ export const upsertCustomer = async (token, formData) => {
 // ✅ Get Customer Details by User ID
 export const getCustomerDetails = async () => {
   try {
-    const response = await fetch("https://krushisarjana-backend.vercel.app/api/customers/customer-details", {
-      method: "GET",
-      credentials: "include", // ✅ Ensures cookies are sent
+    const response = await API.get(`${API_BASE_URL}/customer-details`, {
       headers: {
         "Content-Type": "application/json",
       },
     });
 
     if (!response.ok) {
-      throw new Error(`Error ${response.status}: ${response.statusText}`);
-    }
+    });
 
-    const data = await response.json();
-    console.log("Profile Data:", data);
-    return data;
+    console.log("Profile Data:", response.data);
+    return response.data;
   } catch (error) {
     console.error("Failed to fetch profile:", error);
+    throw error;
   }
 
 };
-
 
