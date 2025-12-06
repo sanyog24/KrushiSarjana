@@ -68,4 +68,5 @@ const AuthAPI = {
 };
 
 // **Exporting API**
-export { API, AuthAPI };
+export { AuthAPI };
+export default API;
