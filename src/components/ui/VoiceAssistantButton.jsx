@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import axios from "axios";
 import { FaMicrophone, FaStop } from "react-icons/fa";
 
-const VoiceAssistantButton = () => {
-    const [recommendedProducts, setRecommendedProducts] = useState(null);
+const VoiceAssistantButton = ({ allProducts = [], onRecommendations }) => {
     const [isVoiceAssistantProcessing, setIsVoiceAssistantProcessing] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
     const [isVoicePopupVisible, setIsVoicePopupVisible] = useState(false);
     const [statusMessage, setStatusMessage] = useState("Click microphone to start");
-    const [allProducts, setAllProducts] = useState([]);
     
     const recognitionRef = useRef(null);
     const synthRef = useRef(window.speechSynthesis);
@@ -108,18 +105,15 @@ const VoiceAssistantButton = () => {
     };
 
     const handleVoiceAssistant = async () => {
-        setRecommendedProducts(null);
+        if (onRecommendations) {
+            onRecommendations(null); // Clear previous recommendations
+        }
         setErrorMessage(null);
         setIsVoiceAssistantProcessing(true);
         setIsVoicePopupVisible(true);
         conversationStateRef.current = { step: 'language', category: null, maxPrice: null, language: 'en-US' };
 
         try {
-            // Fetch products
-            const response = await axios.get("https://krushisarjana-backend.vercel.app/api/products/all-products");
-            const products = response.data.products || [];
-            setAllProducts(products);
-
             // Start conversation
             await runVoiceConversation();
         } catch (err) {
@@ -193,6 +187,9 @@ const VoiceAssistantButton = () => {
                     'mr': "माफ करा, तुमच्या निकषांशी जुळणारे कोणतेही उत्पाद आढळले नाही।"
                 };
                 await speak(noResultsMsg[langCode], selectedLang);
+                if (onRecommendations) {
+                    onRecommendations([]); // Send empty array to parent
+                }
             } else {
                 const successMsg = {
                     'en': `I found ${recommendations.length} products for you.`,
@@ -200,7 +197,9 @@ const VoiceAssistantButton = () => {
                     'mr': `मला तुमच्यासाठी ${recommendations.length} उत्पादने सापडली.`
                 };
                 await speak(successMsg[langCode], selectedLang);
-                setRecommendedProducts(recommendations);
+                if (onRecommendations) {
+                    onRecommendations(recommendations); // Send recommendations to parent
+                }
             }
 
             setIsVoiceAssistantProcessing(false);
@@ -263,25 +262,8 @@ const VoiceAssistantButton = () => {
 
             {/* Error Message */}
             {errorMessage && (
-                <div className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+                <div className="fixed bottom-4 right-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded shadow-lg z-50 max-w-md">
                     {errorMessage}
-                </div>
-            )}
-
-            {/* Recommended Products */}
-            {recommendedProducts && recommendedProducts.length > 0 && (
-                <div className="mt-4 p-4 bg-green-100 border border-green-400 rounded">
-                    <h3 className="font-semibold mb-2">Recommended Products:</h3>
-                    <ul className="space-y-2">
-                        {recommendedProducts.map((product, index) => (
-                            <li key={index} className="flex items-center gap-2">
-                                {product.image && (
-                                    <img src={product.image} alt={product.name} className="w-12 h-12 object-cover rounded" />
-                                )}
-                                <span>{product.name} - ₹{product.price}</span>
-                            </li>
-                        ))}
-                    </ul>
                 </div>
             )}
         </>
