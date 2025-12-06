@@ -84,6 +84,14 @@ const productsToDisplay = voiceRecommendedProducts || filteredProducts;    retur
                     <div className="text-3xl text-gray-300">👤</div>
                 </div>
 
+                {/* Voice Assistant Button - Top of Sidebar */}
+                <div className="mb-6">
+                    <VoiceAssistantButton 
+                        allProducts={dbProducts}
+                        onRecommendations={handleVoiceRecommendations}
+                    />
+                </div>
+
                 {/* Categories Section */}
                 <div className="mt-6">
                     <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
@@ -125,10 +133,6 @@ const productsToDisplay = voiceRecommendedProducts || filteredProducts;    retur
                 {/* Footer */}
                 <div className="mt-auto flex justify-between items-center text-gray-400">
                     <div className="text-xl">❓</div>
-                    <VoiceAssistantButton 
-                        allProducts={dbProducts}
-                        onRecommendations={handleVoiceRecommendations}
-                    />
                 </div>
             </div>
 
