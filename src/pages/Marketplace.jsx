@@ -35,7 +35,7 @@ const [fetchError, setFetchError] = useState(null);
         console.log("sendProductDataToBackend called", products); // Debug log 1
         try {
             console.log("Product data to send:", products); // Debug log 2 - Inspect data just before sending
-            await axios.post('http://localhost:5002/receive_product_data', { products });
+            await axios.post('https://voice-krushisarjana-2.onrender.com/receive_product_data', { products });
             console.log('Product data sent to backend');
         } catch (error) {
             console.error('Error sending product data to backend:', error);
@@ -75,7 +75,7 @@ const [fetchError, setFetchError] = useState(null);
         setIsVoiceAssistantProcessing(true);
         setIsVoicePopupVisible(true); // Show popup when voice assistant starts
         try {
-            const response = await axios.get("http://localhost:5002/voice"); // Call /voice to START assistant
+            const response = await axios.get("https://voice-krushisarjana-2.onrender.com/voice"); // Call /voice to START assistant
             console.log("Voice Assistant Initial Response:", response.data);
 
             if (response.data.message === "Voice assistant started.") {
@@ -97,7 +97,7 @@ const [fetchError, setFetchError] = useState(null);
       setIsVoicePopupVisible(false); // Immediately hide the popup
       clearInterval(pollingIntervalId); // Stop polling
       try {
-          await axios.get("http://localhost:5002/stop_voice_assistant"); // Call backend stop endpoint
+          await axios.get("https://voice-krushisarjana-2.onrender.com/stop_voice_assistant"); // Call backend stop endpoint
           console.log("Voice assistant stopped by user.");
       } catch (error) {
           console.error("Error stopping voice assistant:", error);
@@ -108,7 +108,7 @@ const [fetchError, setFetchError] = useState(null);
   const startPollingForRecommendations = () => {
     pollingIntervalId = setInterval(async () => {
         try {
-            const response = await axios.get("http://localhost:5002/recommendations");
+            const response = await axios.get("https://voice-krushisarjana-2.onrender.com/recommendations");
             console.log("Polling Recommendations Response:", response.data);
 
             if (response.data.recommendations) {
