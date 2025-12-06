@@ -73,6 +73,22 @@ const AddToCart = ({ id, image, name, price, category, description, onClose, sel
         localStorage.setItem("coins", updatedCoins);
         window.dispatchEvent(new Event("storage")); // Trigger storage event
       
+      // Store order details in sessionStorage to create order after payment
+      const orderDetails = {
+        buyerId: user._id,
+        productId: id,
+        productName: name,
+        productImage: image,
+        sellerId: sellerId,
+        sellerName: sellerName,
+        sellerRole: sellerRole,
+        quantity: quantity,
+        price: price,
+        subTotalAmount: price * quantity,
+        totalAmount: calculateSubtotal(),
+      };
+      sessionStorage.setItem("pendingOrder", JSON.stringify(orderDetails));
+      
       const stripe = await stripePromise;
 
       const { data } = await axios.post("https://krushisarjana-backend.vercel.app/api/orders/checkout", {

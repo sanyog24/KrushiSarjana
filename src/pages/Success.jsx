@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { AuthAPI } from "../api/api.js";
 import { jwtDecode } from "jwt-decode";
+import { createOrder } from "../api/order.js";
+import toast from "react-hot-toast";
 
 const Success = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [user, setUser] = useState(null);
+  const [orderCreated, setOrderCreated] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -27,6 +31,52 @@ const Success = () => {
 
     fetchUser();
   }, []);
+
+  useEffect(() => {
+    const createOrderAfterPayment = async () => {
+      if (!user || orderCreated) return;
+
+      const sessionId = searchParams.get("session_id");
+      if (!sessionId) {
+        console.error("No session ID found");
+        return;
+      }
+
+      // Get order details from sessionStorage
+      const pendingOrderData = sessionStorage.getItem("pendingOrder");
+      if (!pendingOrderData) {
+        console.error("No pending order data found");
+        return;
+      }
+
+      try {
+        const orderDetails = JSON.parse(pendingOrderData);
+        console.log("[Success] Creating order:", orderDetails);
+
+        // Create the order in database
+        const orderData = {
+          buyerId: orderDetails.buyerId,
+          productId: orderDetails.productId,
+          paymentId: sessionId,
+          subTotalAmount: orderDetails.subTotalAmount,
+          totalAmount: orderDetails.totalAmount,
+        };
+
+        await createOrder(orderData);
+        console.log("[Success] Order created successfully");
+        
+        // Clear pending order
+        sessionStorage.removeItem("pendingOrder");
+        setOrderCreated(true);
+        toast.success("Order placed successfully!");
+      } catch (error) {
+        console.error("[Success] Error creating order:", error);
+        toast.error("Order creation failed. Please contact support.");
+      }
+    };
+
+    createOrderAfterPayment();
+  }, [user, searchParams, orderCreated]);
 
   const handleRedirect = () => {
     if (!user || !user.role) {

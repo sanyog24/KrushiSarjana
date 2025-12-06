@@ -271,11 +271,9 @@ const VoiceAssistantButton = ({ allProducts = [], onRecommendations }) => {
                     <div className="bg-white p-8 rounded-xl shadow-lg w-96 border-2 border-gray-200 relative max-h-[60vh] overflow-y-auto flex flex-col items-center">
                         <h3 className="text-xl font-semibold text-center mb-4 text-gray-800">Voice Assistant</h3>
 
-                        <img
-                            src="https://media.giphy.com/media/RzqhECDimSgLK/giphy.gif"
-                            alt="Voice Assistant Listening"
-                            className="h-20 w-20 mb-6 rounded-full bg-red-100"
-                        />
+                        <div className="h-20 w-20 mb-6 rounded-full bg-blue-100 flex items-center justify-center animate-pulse">
+                            <FaMicrophone className="text-blue-500 text-4xl" />
+                        </div>
 
                         <p className="mb-6 text-lg text-gray-700 italic text-center">{statusMessage}</p>
                         <button
