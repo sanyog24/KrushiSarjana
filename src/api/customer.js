@@ -26,9 +26,6 @@ export const getCustomerDetails = async () => {
       },
     });
 
-    if (!response.ok) {
-    });
-
     console.log("Profile Data:", response.data);
     return response.data;
   } catch (error) {
