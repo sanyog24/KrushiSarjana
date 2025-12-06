@@ -64,14 +64,42 @@ const VoiceAssistantButton = ({ allProducts = [], onRecommendations }) => {
     };
 
     const extractCategory = (text) => {
+        // English keywords
         const pesticides = ['pesticide', 'pesticides', 'insecticide', 'herbicide'];
         const seeds = ['seed', 'seeds', 'grain', 'grains'];
         const equipment = ['equipment', 'tool', 'tools', 'machine', 'machinery'];
         
+        // Hindi keywords
+        const pesticidesHindi = ['कीटनाशक', 'कीटकनाशक', 'दवा', 'दवाई'];
+        const seedsHindi = ['बीज', 'बीच', 'बी'];
+        const equipmentHindi = ['उपकरण', 'औजार', 'मशीन'];
+        
+        // Marathi keywords
+        const pesticidesMarathi = ['कीटकनाशक', 'औषध'];
+        const seedsMarathi = ['बियाणे', 'बी'];
+        const equipmentMarathi = ['उपकरणे', 'साधन', 'यंत्र'];
+        
         text = text.toLowerCase();
-        if (pesticides.some(word => text.includes(word))) return 'pesticide';
-        if (seeds.some(word => text.includes(word))) return 'seed';
-        if (equipment.some(word => text.includes(word))) return 'equipment';
+        
+        // Check all language keywords
+        if (pesticides.some(word => text.includes(word)) || 
+            pesticidesHindi.some(word => text.includes(word)) ||
+            pesticidesMarathi.some(word => text.includes(word))) {
+            return 'pesticide';
+        }
+        
+        if (seeds.some(word => text.includes(word)) || 
+            seedsHindi.some(word => text.includes(word)) ||
+            seedsMarathi.some(word => text.includes(word))) {
+            return 'seed';
+        }
+        
+        if (equipment.some(word => text.includes(word)) || 
+            equipmentHindi.some(word => text.includes(word)) ||
+            equipmentMarathi.some(word => text.includes(word))) {
+            return 'equipment';
+        }
+        
         return null;
     };
 

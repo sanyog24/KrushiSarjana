@@ -1,15 +1,14 @@
-import axios from "axios";
+import API from "./api";
 
-const API_BASE_URL = "https://krushisarjana-backend.vercel.app/api/products";
+const API_BASE_URL = "/products";
 
 // ✅ Add Product (Retailer Only)
 export const addProduct = async (formData) => {
   try {
-    const res = await axios.post(`${API_BASE_URL}/add-product`, formData, {
+    const res = await API.post(`${API_BASE_URL}/add-product`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
-      withCredentials: true, // Ensure cookies/session are sent
     });
     return res.data;
   } catch (error) {
@@ -20,9 +19,7 @@ export const addProduct = async (formData) => {
 // ✅ Remove Product (Retailer Only)
 export const removeProduct = async (productId) => {
   try {
-    const res = await axios.delete(`${API_BASE_URL}/remove-product/${productId}`, {
-      withCredentials: true,
-    });
+    const res = await API.delete(`${API_BASE_URL}/remove-product/${productId}`);
     return res.data;
   } catch (error) {
     throw error.response?.data?.message || "Failed to remove product";
@@ -32,11 +29,10 @@ export const removeProduct = async (productId) => {
 // ✅ Edit Product (Retailer Only)
 export const editProduct = async (productId, formData) => {
   try {
-    const res = await axios.put(`${API_BASE_URL}/edit-product/${productId}`, formData, {
+    const res = await API.put(`${API_BASE_URL}/edit-product/${productId}`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
-      withCredentials: true,
     });
     return res.data;
   } catch (error) {
@@ -47,9 +43,7 @@ export const editProduct = async (productId, formData) => {
 // ✅ Get Products (Uploaded by this Retailer)
 export const getProductsByRetailer = async () => {
   try {
-    const res = await axios.get(`${API_BASE_URL}/my-products`, {
-      withCredentials: true,
-    });
+    const res = await API.get(`${API_BASE_URL}/my-products`);
     return res.data;
   } catch (error) {
     throw error.response?.data?.message || "Failed to fetch your products";
@@ -59,9 +53,7 @@ export const getProductsByRetailer = async () => {
 // ✅ Get All Products (Uploaded by all Retailers)
 export const getAllProducts = async () => {
   try {
-    const res = await axios.get(`${API_BASE_URL}/all-products`, {
-      withCredentials: true,
-    });
+    const res = await API.get(`${API_BASE_URL}/all-products`);
     return res.data;
   } catch (error) {
     throw error.response?.data?.message || "Failed to fetch products";
@@ -70,9 +62,7 @@ export const getAllProducts = async () => {
 
 export const getProductsByCategory = async (category) => {
   try {
-    const res = await axios.get(`${API_BASE_URL}/category/${category}`, {
-      withCredentials: true,
-    });
+    const res = await API.get(`${API_BASE_URL}/category/${category}`);
     return res.data;
   } catch (error) {
     throw error.response?.data?.message || "Failed to fetch products for this category";
@@ -81,9 +71,7 @@ export const getProductsByCategory = async (category) => {
 
 export const getProductById = async (productId) => {
   try {
-    const res = await axios.get(`${API_BASE_URL}/product/${productId}`, {
-      withCredentials: true,
-    });
+    const res = await API.get(`${API_BASE_URL}/product/${productId}`);
     return res.data;
   } catch (error) {
     throw error.response?.data?.message || "Failed to fetch product details";
@@ -92,9 +80,7 @@ export const getProductById = async (productId) => {
 
 export const getAllProductsByName = async (productName) => {
   try {
-    const res = await axios.get(`${API_BASE_URL}/name/${productName}`, {
-      withCredentials: true,
-    });
+    const res = await API.get(`${API_BASE_URL}/name/${productName}`);
     return res.data;
   } catch (error) {
     throw error.response?.data?.message || "Failed to fetch products by name";
@@ -105,11 +91,10 @@ export const getAllProductsByName = async (productName) => {
 // ✅ Add Review (Customer or Farmer)
 export const addReview = async (productId, reviewData) => {
   try {
-    const res = await axios.post(`${API_BASE_URL}/${productId}/review`, reviewData, {
+    const res = await API.post(`${API_BASE_URL}/${productId}/review`, reviewData, {
       headers: {
         "Content-Type": "application/json",
       },
-      withCredentials: true,
     });
     return res.data;
   } catch (error) {
@@ -120,9 +105,7 @@ export const addReview = async (productId, reviewData) => {
 // ✅ Get Reviews for a Product
 export const getReviews = async (productId) => {
   try {
-    const res = await axios.get(`${API_BASE_URL}/${productId}/reviews`, {
-      withCredentials: true,
-    });
+    const res = await API.get(`${API_BASE_URL}/${productId}/reviews`);
     return res.data;
   } catch (error) {
     throw error.response?.data?.message || "Failed to fetch reviews";
@@ -132,9 +115,7 @@ export const getReviews = async (productId) => {
 // ✅ Delete Review (Only Review Owner or Admin)
 export const deleteReview = async (productId, reviewId) => {
   try {
-    const res = await axios.delete(`${API_BASE_URL}/${productId}/review/${reviewId}`, {
-      withCredentials: true,
-    });
+    const res = await API.delete(`${API_BASE_URL}/${productId}/review/${reviewId}`);
     return res.data;
   } catch (error) {
     throw error.response?.data?.message || "Failed to delete review";
