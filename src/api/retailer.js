@@ -1,27 +1,21 @@
-import axios from "axios";
+import API from "./api";
 
-const API_URL = "https://krushisarjana-backend.vercel.app/api/retailers";
+const API_URL = "/retailers";
 
 // ✅ Get Retailer Profile
 export const getRetailerProfile = async () => {
   try {
-    const response = await fetch("https://krushisarjana-backend.vercel.app/api/retailers/get-profile", {
-      method: "GET",
-      credentials: "include", // ✅ Ensures cookies are sent
+    const response = await API.get(`${API_URL}/get-profile`, {
       headers: {
         "Content-Type": "application/json",
       },
     });
 
-    if (!response.ok) {
-      throw new Error(`Error ${response.status}: ${response.statusText}`);
-    }
-
-    const data = await response.json();
-    console.log("Profile Data:", data);
-    return data;
+    console.log("Profile Data:", response.data);
+    return response.data;
   } catch (error) {
     console.error("Failed to fetch profile:", error);
+    throw error;
   }
 };
 
@@ -31,16 +25,13 @@ export const getRetailerProfile = async () => {
 // ✅ Edit Retailer Profile (with optional profile image)
 export const editRetailerProfile = async (token, formData) => {
   try {
-    const response = await axios.post(`${API_URL}/profile`, formData, {
+    const response = await API.post(`${API_URL}/profile`, formData, {
       headers: {
-        Authorization: `Bearer ${token}`,
         "Content-Type": "multipart/form-data",
       },
-      withCredentials: true, // ✅ Ensures cookies are sent if needed
     });
     return response.data;
   } catch (error) {
     throw error.response?.data?.message || "Error updating profile";
   }
 };
-

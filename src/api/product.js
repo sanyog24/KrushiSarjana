@@ -54,9 +54,10 @@ export const getProductsByRetailer = async () => {
 export const getAllProducts = async () => {
   try {
     const res = await API.get(`${API_BASE_URL}/all-products`);
-    return res.data;
+    return res.data || [];
   } catch (error) {
-    throw error.response?.data?.message || "Failed to fetch products";
+    console.error("getAllProducts error:", error.response?.data || error.message);
+    throw error.response?.data?.message || error.message || "Failed to fetch products";
   }
 };
 

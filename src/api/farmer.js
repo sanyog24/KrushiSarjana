@@ -1,21 +1,19 @@
-import axios from "axios";
+import API from "./api";
 
-const API_BASE_URL = "https://krushisarjana-backend.vercel.app/api/farmers";
+const API_BASE_URL = "/farmers";
 
 /**
  * @desc Create or Update Farmer Profile
  * @param {FormData} formData - Form data containing farmer details and profile image.
- * @param {string} token - JWT token for authentication.
+ * @param {string} token - JWT token for authentication (optional, will use stored token).
  * @returns {Promise<Object>} - Response data
  */
 export const upsertFarmerProfile = async (formData, token) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/upsert-farmer`, formData, {
+    const response = await API.post(`${API_BASE_URL}/upsert-farmer`, formData, {
       headers: {
-        Authorization: `Bearer ${token}`,
         "Content-Type": "multipart/form-data",
       },
-      withCredentials: true, // Include cookies if needed
     });
 
     return response.data;
@@ -27,15 +25,12 @@ export const upsertFarmerProfile = async (formData, token) => {
 
 /**
  * @desc Get Farmer Details
- * @param {string} token - JWT token for authentication.
+ * @param {string} token - JWT token for authentication (optional, will use stored token).
  * @returns {Promise<Object>} - Farmer details
  */
 export const getFarmerDetails = async (token) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/get-farmer`, {
-      headers: { Authorization: `Bearer ${token}` },
-      withCredentials: true,
-    });
+    const response = await API.get(`${API_BASE_URL}/get-farmer`);
 
     return response.data;
   } catch (error) {
@@ -47,7 +42,7 @@ export const getFarmerDetails = async (token) => {
 
 export const getFarmerById = async (farmerId) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/get-farmer/${farmerId}`);
+    const response = await API.get(`${API_BASE_URL}/get-farmer/${farmerId}`);
 
     return response.data;
   } catch (error) {
@@ -55,4 +50,3 @@ export const getFarmerById = async (farmerId) => {
     throw new Error(error.response?.data?.message || "Failed to fetch farmer details");
   }
 };
-

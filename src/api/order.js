@@ -1,11 +1,11 @@
-import axios from "axios";
+import API from "./api";
 
-const API_BASE_URL = "https://krushisarjana-backend.vercel.app/api/orders";
+const API_BASE_URL = "/orders";
 
 // Create a new order
 export const createOrder = async (orderData) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/create-order`, orderData, {
+    const response = await API.post(`${API_BASE_URL}/create-order`, orderData, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -20,7 +20,7 @@ export const createOrder = async (orderData) => {
 // Get orders for a specific user
 export const getUserOrders = async (userId) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/${userId}`);
+    const response = await API.get(`${API_BASE_URL}/${userId}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching user orders:", error.response?.data || error.message);
@@ -33,21 +33,17 @@ export const updateOrderStatus = async (orderId, updateData) => {
   try {
     console.log("Sending update request:", updateData);
 
-    const response = await fetch(`https://krushisarjana-backend.vercel.app/api/orders/${orderId}/status`, {
-      method: "PUT",
+    const response = await API.put(`${API_BASE_URL}/${orderId}/status`, updateData, {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(updateData),
     });
 
-    const result = await response.json();
-    console.log("Server response:", result);
-
-    return result;
+    console.log("Server response:", response.data);
+    return response.data;
   } catch (error) {
     console.error("Error in updateOrderStatus API:", error);
-    return { success: false, error };
+    return { success: false, error: error.response?.data || error.message };
   }
 };
 
@@ -55,7 +51,7 @@ export const cancelOrder = async (orderId) => {
   try {
     console.log(`Attempting to cancel order: ${orderId}`);
 
-    const response = await axios.delete(`${API_BASE_URL}/${orderId}/cancel`);
+    const response = await API.delete(`${API_BASE_URL}/${orderId}/cancel`);
     
     console.log("Cancel order response:", response.data);
     
