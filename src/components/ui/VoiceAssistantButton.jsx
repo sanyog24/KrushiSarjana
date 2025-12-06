@@ -34,13 +34,13 @@ const VoiceAssistantButton = () => {
             }));
 
             // Send product data to backend
-            await axios.post("http://localhost:5002/receive_product_data", {
+            await axios.post("https://voice-krushisarjana-2.onrender.com/receive_product_data", {
                 products: formattedProducts,
             });
             console.log("Product data sent to backend");
 
             // Now start the voice assistant
-            const response = await axios.get("http://localhost:5002/voice"); // Call /voice to START assistant
+            const response = await axios.get("https://voice-krushisarjana-2.onrender.com/voice"); // Call /voice to START assistant
             console.log("Voice Assistant Initial Response:", response.data);
 
             if (response.data.message === "Voice assistant started.") {
@@ -62,7 +62,7 @@ const VoiceAssistantButton = () => {
         setIsVoicePopupVisible(false); // Immediately hide the popup
         clearInterval(pollingIntervalId); // Stop polling
         try {
-            await axios.get("http://localhost:5002/stop_voice_assistant"); // Call backend stop endpoint
+            await axios.get("https://voice-krushisarjana-2.onrender.com/stop_voice_assistant"); // Call backend stop endpoint
             console.log("Voice assistant stopped by user.");
         } catch (error) {
             console.error("Error stopping voice assistant:", error);
@@ -73,7 +73,7 @@ const VoiceAssistantButton = () => {
     const startPollingForRecommendations = () => {
         pollingIntervalId = setInterval(async () => {
             try {
-                const response = await axios.get("http://localhost:5002/recommendations");
+                const response = await axios.get("https://voice-krushisarjana-2.onrender.com/recommendations");
                 console.log("Polling Recommendations Response:", response.data);
 
                 if (response.data.recommendations) {

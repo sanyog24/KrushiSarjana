@@ -42,7 +42,7 @@ const PricePrediction = () => {
     setChartData(null);
 
     try {
-      const response = await axios.get(`http://localhost:5002/predict?commodity=${commodity}`);
+      const response = await axios.get(`https://voice-krushisarjana-2.onrender.com/predict?commodity=${commodity}`);
       setPrediction(response.data);
 
       // Prepare chart data

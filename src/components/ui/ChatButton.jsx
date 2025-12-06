@@ -9,7 +9,7 @@ import { io } from "socket.io-client";
 
 
 
-const socket = io("http://localhost:5002"); // Connect to the backend
+const socket = io("https://voice-krushisarjana-2.onrender.com/"); // Connect to the backend
 
 const style = {
   position: 'absolute',
