@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api/products"; // Update this if needed
+const API_BASE_URL = "https://krushisarjana-backend.vercel.app/api/products";
 
 // ✅ Add Product (Retailer Only)
 export const addProduct = async (formData) => {

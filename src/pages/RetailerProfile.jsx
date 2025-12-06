@@ -84,7 +84,7 @@ export default function RetailerProfile() {
 
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:5000/api/retailers/profile", {
+      const response = await fetch("https://krushisarjana-backend.vercel.app/api/retailers/profile", {
         method: "POST", // Ensures updating existing data
         headers: {
           Authorization: `Bearer ${token}`,

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api/customers"; // Update this if needed
+const API_BASE_URL = "https://krushisarjana-backend.vercel.app/api/customers";
 
 // ✅ Upsert (Create or Update) Customer with Profile Image Upload
 export const upsertCustomer = async (token, formData) => {
@@ -22,7 +22,7 @@ export const upsertCustomer = async (token, formData) => {
 // ✅ Get Customer Details by User ID
 export const getCustomerDetails = async () => {
   try {
-    const response = await fetch("http://localhost:5000/api/customers/customer-details", {
+    const response = await fetch("https://krushisarjana-backend.vercel.app/api/customers/customer-details", {
       method: "GET",
       credentials: "include", // ✅ Ensures cookies are sent
       headers: {

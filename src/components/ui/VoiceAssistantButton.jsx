@@ -21,7 +21,7 @@ const VoiceAssistantButton = () => {
         setIsVoicePopupVisible(true); // Show popup when voice assistant starts
         try {
             // Fetch all products from backend
-            const productsResponse = await axios.get("http://localhost:5000/api/products/all-products");
+            const productsResponse = await axios.get("https://krushisarjana-backend.vercel.app/api/products/all-products");
             const allProducts = productsResponse.data.products || [];
             console.log("Fetched Products:", allProducts);
 

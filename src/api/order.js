@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api/orders";
+const API_BASE_URL = "https://krushisarjana-backend.vercel.app/api/orders";
 
 // Create a new order
 export const createOrder = async (orderData) => {
@@ -33,7 +33,7 @@ export const updateOrderStatus = async (orderId, updateData) => {
   try {
     console.log("Sending update request:", updateData);
 
-    const response = await fetch(`http://localhost:5000/api/orders/${orderId}/status`, {
+    const response = await fetch(`https://krushisarjana-backend.vercel.app/api/orders/${orderId}/status`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
