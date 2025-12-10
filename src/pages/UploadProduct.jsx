@@ -71,7 +71,7 @@ export default function UploadProduct() {
         image: imagePreview || "https://via.placeholder.com/150", // Use image preview or placeholder
       };
 
-      const blockchainResponse = await axios.post("http://localhost:5003/add-product", blockchainData);
+      const blockchainResponse = await axios.post("https://krushi-sarjana-blockchain.vercel.app/add-product", blockchainData);
       toast.success(blockchainResponse.data.message || "Product added to blockchain successfully!");
 
       // Step 3: Reset form and fetch updated blockchain
